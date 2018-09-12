@@ -1200,6 +1200,11 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.10</version>
                 </plugin>
+                <plugin>
+                    <groupId>net.alchim31.maven</groupId>
+                    <artifactId>scala-maven-plugin</artifactId>
+                    <version>3.4.1</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -1225,6 +1230,13 @@
                         <!--</configuration>-->
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                        <excludePackageNames>org.apache.kylin.*</excludePackageNames>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -1706,8 +1718,7 @@
                         </executions>
                         <configuration>
                             <algorithms>
-                                <algorithm>MD5</algorithm>
-                                <algorithm>SHA-1</algorithm>
+                                <algorithm>SHA-256</algorithm>
                             </algorithms>
                             <failOnError>false</failOnError>
                         </configuration>
